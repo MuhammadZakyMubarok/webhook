@@ -12,7 +12,7 @@ TELEGRAM_URL = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
 @app.route("/webhook", methods=["POST"])
 def webhook():
     try:
-        data = request.get_json()
+        data = request.get_json(force=True)
 
         # Pastikan data dari MQL5 sesuai format
         symbol = data.get("symbol", "UNKNOWN")
